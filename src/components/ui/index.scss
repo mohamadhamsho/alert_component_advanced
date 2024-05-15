@@ -1,0 +1,51 @@
+$borderDefault: rgba(134, 134, 134, 0.952);
+$defaultBg: rgba(129, 127, 127, 0.15);
+$textDefault: rgb(167, 167, 167);
+
+$borderDanger: rgba(231, 2, 2, 0.637);
+$dangerBg: rgba(228, 30, 30, 0.178);
+$textDanger:rgb(255, 143, 131);
+
+$borderWarning: rgba(227, 231, 2, 0.637);
+$warningBg: rgba(243, 210, 24, 0.308);
+$textWarning: rgba(229, 255, 0, 0.911);
+
+$borderInfo: rgba(4, 66, 235, 0.712);
+$infoBg: rgba(3, 56, 156, 0.15);
+$textInfo: rgb(118, 150, 255);
+
+$borderSuccess: rgba(0, 230, 11, 0.795);
+$successBg: rgba(16, 156, 3, 0.15);
+$textSuccess: rgb(93, 252, 72);
+
+@mixin alert($name, $border, $bg, $text){
+    .#{$name}{
+        border: 2px dotted $border;
+        padding: 20px;
+        background: $bg;
+        margin-bottom: 1rem;
+        .alert-title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $text;
+    
+            .title{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+        .paragraph{
+            color: $text;
+            padding: 10px;
+            line-height: 1.5;
+        }
+    }
+}
+
+@include alert("alert-danger", $borderDanger, $dangerBg, $textDanger);
+@include alert("alert-warn", $borderWarning, $warningBg, $textWarning);
+@include alert("alert-info", $borderInfo, $infoBg, $textInfo);
+@include alert("alert-default", $borderDefault, $defaultBg, $textDefault);
+@include alert("alert-success", $borderSuccess, $successBg, $textSuccess);

@@ -1,0 +1,41 @@
+##################################################################################################
+interface IProps {
+  title: string;
+  description: string;
+}
+########## start way 01 ##########
+const Alert = ({ title, description }: IProps) => {
+  return (
+    <div>
+      {title}
+      {description}
+    </div>
+  );
+};
+
+########## Another Way 02 ##########
+const Alert = ({
+    title,
+    description,
+  }: {
+    title: string;
+    description: string;
+  }) => {
+    return (
+      <div>
+        {title}
+        {description}
+      </div>
+    );
+  };
+
+########## Another Way 03 ##########
+const Alert: React.FC<IProps> = ({ title, description }) => {
+  return (
+    <div>
+      {title}
+      {description}
+    </div>
+  );
+};
+##################################################################################################
